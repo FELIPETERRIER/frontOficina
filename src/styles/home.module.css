@@ -1,0 +1,70 @@
+.main{
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+
+    height: 100%;
+    width: 100%;
+    margin-top: 200px;
+    
+}
+
+
+.rectangle{
+    background-color: #BECFC3;
+    width: 300px;
+    height: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content:flex-end;
+    
+
+    border: 1px solid #575A58;
+    border-radius: 10px;
+    box-shadow: 2px 2px 2px 1px;
+}
+
+.users,
+.identification,
+.loginButton{
+    display: flex;
+    justify-content:center;   
+    width: 100%;    
+
+    margin: 5px auto;
+}
+.identification label,
+.users label{
+    color: #ffffff;
+    width: 40%;
+    justify-content: left;
+    text-align: center;
+}
+
+.loginButton button{
+    width: 90%;
+    height: 5vh;
+    border-radius: 15px;
+
+    cursor: pointer;
+    background-color: #575A58;
+    color: #ffffff;
+}
+.input{    
+    width: 100%;    
+    margin: 5px;  
+    border-radius:  10px;  
+}
+.imgGears{   
+    display: flex;
+    margin: 0 auto 10px;
+    align-items: center;
+}
+.gears{
+    width: 200px;
+    height: 150px;    
+}
+.selecao{
+    color: black;
+}
+    
