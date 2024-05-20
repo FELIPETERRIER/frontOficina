@@ -13,7 +13,7 @@
 .rectangle{
     background-color: #BECFC3;
     width: 300px;
-    height: 300px;
+    height: 350px;
     display: flex;
     flex-direction: column;
     justify-content:flex-end;
@@ -26,6 +26,7 @@
 
 .users,
 .identification,
+.password,
 .loginButton{
     display: flex;
     justify-content:center;   
@@ -34,7 +35,8 @@
     margin: 5px auto;
 }
 .identification label,
-.users label{
+.users label,
+.password label{
     color: #ffffff;
     width: 40%;
     justify-content: left;
