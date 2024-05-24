@@ -11,24 +11,26 @@ export default function Login() {
    
    
     const [post,setPost] = useState({
-        cpf:'',
-        senha:'',
+        
        })
        const handleInput = (e)=> {
-        setPost({...post,[e.target.value]:e.target.value})
+        setPost({...post,[e.target.id]:e.target.value})
        }
       
+      
+      
        const handleSubmit=()=>{
-        //e.preventDefault()
+        event=>{event.preventDefault()}
         axios.post('http://localhost:3001/login',{post})
         .then(res =>console.log(res))
-        .catch(err => console.log(err))
+        .catch(err =>console.log(err))
        }
+     
   return (
-    <form onSubmit={handleSubmit()} className={styles.main}>
+    <div className={styles.main}>
         <div className={styles.rectangle}>
             <div className={styles.imgGears}>
-                <Image src={Gears} className={styles.gears} />
+                <Image src={Gears} className={styles.gears} alt="gears" />
             </div>
             <div className={styles.users}>
                 <label>Usuário</label>
@@ -41,6 +43,7 @@ export default function Login() {
                     <option>Propietário(a)</option>
                 </select>       
             </div>
+            <form>
             <div className={styles.identification}>
                 <label>CPF</label>
                 <InputMask className={styles.input} id="cpf" name="cpf"  onChange={handleInput} mask="999.999.999 - 99"  maskChar="_" required/>        
@@ -50,12 +53,14 @@ export default function Login() {
                 <input type="password" id="senha" name="senha" className={styles.input}  onChange={handleInput} placeholder="*********"required/>        
             </div>        
             <div className={styles.loginButton}>        
-                <button onClick={handleSubmit}>Login</button>        
+                <button onClick={handleSubmit}>Login</button> 
+                       
             </div>
+           
+            </form>
             
         </div>
         
-    </form>
+    </div>
   );
 }
-/*axios*/

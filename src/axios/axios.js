@@ -1,4 +1,4 @@
-import axios from 'axios';
+/*import axios from 'axios';
 import { useState } from 'react';
  const [post,setPost] = useState({
   cpf:'',
@@ -13,4 +13,4 @@ import { useState } from 'react';
   axios.post('http://localhost:3001/login',{post})
   .then(res =>console.log(res))
   .catch(err => console.log(err))
- }
+ }*/
