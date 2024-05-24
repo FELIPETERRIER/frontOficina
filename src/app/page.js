@@ -18,7 +18,7 @@ export default function Login() {
         setPost({...post,[e.target.value]:e.target.value})
        }
       
-       const handleSubmit=(e)=>{
+       const handleSubmit=()=>{
         //e.preventDefault()
         axios.post('http://localhost:3001/login',{post})
         .then(res =>console.log(res))
@@ -47,7 +47,7 @@ export default function Login() {
             </div>
             <div className={styles.password}>
                 <label>Senha</label>
-                <input type="password" id="pass" name="pass" className={styles.input}  onChange={handleInput} placeholder="*********"required/>        
+                <input type="password" id="senha" name="senha" className={styles.input}  onChange={handleInput} placeholder="*********"required/>        
             </div>        
             <div className={styles.loginButton}>        
                 <button onClick={handleSubmit}>Login</button>        
