@@ -1,31 +1,38 @@
 'use client'
 import Image from "next/image";
 import styles from "../styles/home.module.css"
-import { useState } from "react";
+import {useState} from "react";
 import InputMask from 'react-input-mask';
+import axios from "axios";
 
 import Gears from "../../public/images/gears.png"
 
 export default function Login() {
-    const [user,setUser] = useState("");
-    const[ident,setIdent] = useState("");
-    const[password,setPass] = useState("");
-
-
-
-    const handleSubmit = () =>{
-        console.log("envio")}
-
-
+   
+   
+    const [post,setPost] = useState({
+        cpf:'',
+        senha:'',
+       })
+       const handleInput = (e)=> {
+        setPost({...post,[e.target.value]:e.target.value})
+       }
+      
+       const handleSubmit=(e)=>{
+        //e.preventDefault()
+        axios.post('http://localhost:3001/login',{post})
+        .then(res =>console.log(res))
+        .catch(err => console.log(err))
+       }
   return (
-    <main className={styles.main}>
+    <form onSubmit={handleSubmit()} className={styles.main}>
         <div className={styles.rectangle}>
             <div className={styles.imgGears}>
                 <Image src={Gears} className={styles.gears} />
             </div>
             <div className={styles.users}>
                 <label>Usuário</label>
-                <select className={styles.input} id="user" type="text" onChange={(e) => setUser(e.target.value)}>  
+                <select className={styles.input} id="typeUser" name="typeUser" type="text" >  
                     <option>Selecione o tipo de usuário</option>                   
                     <option>Cliente</option>
                     <option>Mecânico(a)</option>
@@ -36,16 +43,19 @@ export default function Login() {
             </div>
             <div className={styles.identification}>
                 <label>CPF</label>
-                <InputMask className={styles.input} id="cpf"  onChange={(e)=> setIdent(e.target.value)} mask="999.999.999 - 99"  maskChar="_" required/>        
+                <InputMask className={styles.input} id="cpf" name="cpf"  onChange={handleInput} mask="999.999.999 - 99"  maskChar="_" required/>        
             </div>
             <div className={styles.password}>
                 <label>Senha</label>
-                <input type="password" id="password" className={styles.input}  onChange={(e)=> setPass(e.target.value)} placeholder="*********"required/>        
+                <input type="password" id="pass" name="pass" className={styles.input}  onChange={handleInput} placeholder="*********"required/>        
             </div>        
             <div className={styles.loginButton}>        
                 <button onClick={handleSubmit}>Login</button>        
             </div>
+            
         </div>
-    </main>
+        
+    </form>
   );
 }
+/*axios*/
