@@ -35,12 +35,12 @@ export default function Login() {
             <div className={styles.users}>
                 <label>Usuário</label>
                 <select className={styles.input} onChange={handleInput} id="typeUser" name="typeUser" type="text" >  
-                    <option>Selecione o tipo de usuário</option>                   
-                    <option>Cliente</option>
-                    <option>Mecânico(a)</option>
-                    <option>Gerente</option>
-                    <option>Funileiro(a)</option>
-                    <option>Propietário(a)</option>
+                    <option value="0">Selecione o tipo de usuário</option>                   
+                    <option value="34" >Cliente</option>
+                    <option value="32">Auxiliar Mecânico(a)</option>
+                    <option value="33">Gerente</option>
+                    <option value="38">Funileiro(a)</option>
+                    <option value="35">Propietário(a)</option>
                 </select>       
             </div>
             <form>
