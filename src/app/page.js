@@ -40,37 +40,23 @@ export default function Login() {
         event=>{event.preventDefault()}
         axios.get('http://localhost:3001/tipoUsuarios',{selector})        
         .then(res =>{
-            const data = res.data;                
-            const funcaoSelect = funcaoUser => funcaoUser.funcao           
-            const funcaoSelected = data.map(funcaoSelect)
+            const data = res.data;            
+                const funcaoSelect = funcaoUser => funcaoUser.funcao
+                var select = document.getElementById("typeUser");           
+                let funcaoSelected = data.map(funcaoSelect);     
+                
+                for(let i = 0 ;i < funcaoSelected.length;i++){
+                    let opt = funcaoSelected[i];
+                    var el = document.createElement("option");
+                    el.textContent = opt;
+                    el.value = opt;
+                    select.appendChild(el);
+                }
+               }                
             
-            for (let value of funcaoSelected) {
-                console.log(value)      
-            
-        }})
+        )
         .catch(err =>console.log(err))  
        }
-      
-        
-       
-      /* let b =  axios.get('http://localhost:3001/tipoUsuarios',{selector}) 
-       console.log(b.data)
-        
-       
-        
-        /*map((funcao) => {
-            selecao.push(
-            <option key={funcao}>
-
-            </option>)
-            
-        });*/
-        
-      
-        
-    
-   
-    
   return (
     <div className={styles.main}>
         <div className={styles.rectangle}>
@@ -79,10 +65,8 @@ export default function Login() {
             </div>
             <div className={styles.users}>
                 <label>Usuário</label>
-                <select className={styles.input} onClick={seletorUsers}  id="typeUser" name="typeUser" type="text" > 
-                   
-                               
-                   
+                <select className={styles.input} onClick={seletorUsers} id="typeUser" name="typeUser" type="text" >                          
+                   <option>Selecione o tipo de usuário</option>
                 </select>       
             </div>
             <form>
