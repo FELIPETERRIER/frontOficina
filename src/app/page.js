@@ -9,9 +9,13 @@ import Gears from "../../public/images/gears.png"
 
 export default function Login() {
    
-    const[selector]= useState({
+    const[selector,setSelector]= useState({
 
     })
+        const selectInput = (e) =>{
+            setSelector()
+        }
+      
     
          
     const [post,setPost] = useState({
@@ -32,13 +36,21 @@ export default function Login() {
        }    
       
       
-       const banana=()=>{
+       const seletorUsers=()=>{
         event=>{event.preventDefault()}
         axios.get('http://localhost:3001/tipoUsuarios',{selector})        
-        .then(res =>console.log(res.data))
+        .then(res =>{
+            const data = res.data;                
+            const funcaoSelect = funcaoUser => funcaoUser.funcao           
+            const funcaoSelected = data.map(funcaoSelect)
+            
+            for (let value of funcaoSelected) {
+                console.log(value)      
+            
+        }})
         .catch(err =>console.log(err))  
        }
-       banana()
+      
         
        
       /* let b =  axios.get('http://localhost:3001/tipoUsuarios',{selector}) 
@@ -67,8 +79,9 @@ export default function Login() {
             </div>
             <div className={styles.users}>
                 <label>Usuário</label>
-                <select className={styles.input} onChange={handleInput} id="typeUser" name="typeUser" type="text" >  
-                    <option   id="0" value="0"></option>                   
+                <select className={styles.input} onClick={seletorUsers}  id="typeUser" name="typeUser" type="text" > 
+                   
+                               
                    
                 </select>       
             </div>
